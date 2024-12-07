@@ -9,7 +9,7 @@ namespace Tyuiu.KonstantinovaJN.Sprint5.Task0.V29.Test
         [TestMethod]
         public void CheckedExistsFile()
         {
-            string path = @"C:\Users\terwi\source\repos\Tyuiu.KonstantinovaJN.Sprint5\Tyuiu.KonstantinovaJN.Sprint5.Task0.V29\bin\Debug\net8.0\OutPutFileTask0.txt";
+            string path = Path.Combine(Path.GetTempPath(), "OutPutFileTask0.txt");
 
             FileInfo fileinfo = new FileInfo(path);
 
