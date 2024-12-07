@@ -38,8 +38,8 @@ namespace Tyuiu.KonstantinovaJN.Sprint4.Task0.V30
 
             Console.WriteLine("Файл: " + res);
             Console.WriteLine("Создан.");
-            Console.ReadKey();
 
+            Console.ReadKey();
         }
     }
 }
