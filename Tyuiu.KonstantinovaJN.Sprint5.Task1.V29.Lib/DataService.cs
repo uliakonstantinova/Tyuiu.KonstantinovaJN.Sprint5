@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Globalization;
+using System.IO;
 using System.Runtime.Serialization.Formatters;
 using tyuiu.cources.programming.interfaces.Sprint5;
 
@@ -24,27 +25,15 @@ namespace Tyuiu.KonstantinovaJN.Sprint5.Task1.V29.Lib
             {
                 double r = Math.Sin(x);
                 double t = x + 1.2;
-                if (t == 0)
-                {
-                    f = 0;
-                }
-                else
-                {
-                    f = (r / t) + Math.Cos(x) + 7 * x - 2;
-                }
+
+                f = (t != 0) ? (r / t) + Math.Cos(x) + 7 * x - 2 : 0;
+
+                strF = f.ToString("F2", CultureInfo.InvariantCulture);
                 strF = Math.Round(f, 2).ToString();
 
-                if (x != stopValue)
-                {
-                    File.AppendAllText(path, strF + Environment.NewLine);
-                }
-                else
-                {
-                    File.AppendAllText(path, strF);
-                }
+                File.AppendAllText(path, strF + Environment.NewLine);
             }
             return path;
-
         }
     }
 }
