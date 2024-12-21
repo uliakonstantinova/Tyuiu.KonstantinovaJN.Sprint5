@@ -10,7 +10,7 @@ namespace Tyuiu.KonstantinovaJN.Sprint5.Task4.V22.Test
         {
             DataService ds = new DataService();
 
-            string path = Path.Combine(Path.GetTempPath(), "InPutFileTask4V22.txt");
+            string path = Path.Combine(Path.GetTempPath(), "InPutFileTask4.txt");
 
             FileInfo fileinfo = new FileInfo(path);
 
