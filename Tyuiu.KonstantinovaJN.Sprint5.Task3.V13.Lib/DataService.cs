@@ -11,7 +11,7 @@ namespace Tyuiu.KonstantinovaJN.Sprint5.Task3.V13.Lib
             string path = Path.Combine(Path.GetTempPath(), "OutPutFileTask3.bin");
 
             double y = x / (Math.Pow(x, 3) + 2);
-            y = Math.Round(y, 2);
+            y = Math.Round(y, 3);
 
             using (BinaryWriter writer = new BinaryWriter(File.Open(path, FileMode.OpenOrCreate), Encoding.UTF8))
             {
