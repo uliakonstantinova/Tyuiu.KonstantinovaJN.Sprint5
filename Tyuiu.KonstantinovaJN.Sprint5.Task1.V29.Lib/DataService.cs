@@ -23,10 +23,9 @@ namespace Tyuiu.KonstantinovaJN.Sprint5.Task1.V29.Lib
             string strF;
             for (int x = startValue; x <= stopValue; x++)
             {
-                double r = Math.Sin(x);
-                double t = x + 1.2;
-
-                f = (t != 0) ? (r / t) + Math.Cos(x) + 7 * x - 2 : 0;
+                double r = Math.Sin(x) / (x + 1.2);
+                double u = Math.Cos(x) * 7 * x - 2;
+                f = r + u;
 
                 strF = f.ToString("F2", CultureInfo.InvariantCulture);
                 strF = Math.Round(f, 2).ToString();
