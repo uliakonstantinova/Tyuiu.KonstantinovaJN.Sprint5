@@ -1,6 +1,6 @@
 ﻿using Tyuiu.KonstantinovaJN.Sprint5.Task2.V23.Lib;
 
-namespace Tyuiu.KonstantinovaJN.Sprint5.Task1.V29
+namespace Tyuiu.KonstantinovaJN.Sprint5.Task2.V23
 {
     class Program
     {
