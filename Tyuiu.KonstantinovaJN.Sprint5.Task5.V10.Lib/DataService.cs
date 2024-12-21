@@ -11,7 +11,7 @@ namespace Tyuiu.KonstantinovaJN.Sprint5.Task5.V10.Lib
             using (StreamReader reader = new StreamReader(path))
             {
                 string line;
-                while ((line = reader.ReadLine()) != null);
+                while ((line = reader.ReadLine()) != null)
                 {
                     if (Convert.ToDouble(line) % 2 == 0)
                     {
