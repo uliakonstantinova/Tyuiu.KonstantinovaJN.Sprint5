@@ -18,11 +18,11 @@ namespace Tyuiu.KonstantinovaJN.Sprint5.Task2.V23.Lib
             }
 
             int rows = matrix.GetUpperBound(0) + 1;
-            int cols = matrix.Length / rows;
+            int columns = matrix.Length / rows;
 
             for (int i = 0; i < rows; i++)
             {
-                for (int j = 0; j < cols; j++)
+                for (int j = 0; j < columns; j++)
                 {
                     if (matrix[i, j] % 2 != 0)
                     {
@@ -34,9 +34,9 @@ namespace Tyuiu.KonstantinovaJN.Sprint5.Task2.V23.Lib
             string str = "";
             for (int i = 0; i < rows; i++)
             {
-                for (int j = 0; j < cols; j++)
+                for (int j = 0; j < columns; j++)
                 {
-                    if (j != cols - 1)
+                    if (j != columns - 1)
                     {
                         str += matrix[i, j] + ";";
                     }
