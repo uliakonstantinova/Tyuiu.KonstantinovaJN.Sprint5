@@ -1,61 +1,60 @@
 ﻿using tyuiu.cources.programming.interfaces.Sprint5;
-using System.IO;
 
-namespace Tyuiu.KonstantinovaJN.Sprint5.Task2.V23.Lib
+namespace Tyuiu.KonstantinovaJN.Sprint5.Task2.V23.Lib;
+
+public class DataService : ISprint5Task2V23
 {
-    public class DataService : ISprint5Task2V23
+    public string SaveToFileTextData(int[,] matrix)
     {
-        public string SaveToFileTextData(int[,] matrix)
+        string path = Path.Combine(Path.GetTempPath(), "OutPutFileTask2.csv");
+
+        FileInfo fileinfo = new FileInfo(path);
+        bool fileExists = fileinfo.Exists;
+
+        if (fileExists)
         {
-            string path = Path.Combine(Path.GetTempPath(), "OutPutFileTask2.csv");
+            File.Delete(path);
+        }
 
-            FileInfo fileinfo = new FileInfo(path);
-            bool fileExists = fileinfo.Exists;
+        int rows = matrix.GetUpperBound(0) + 1;
+        int columns = matrix.Length / rows;
 
-            if (fileExists)
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++)
             {
-                File.Delete(path);
-            }
-
-            int rows = matrix.GetUpperBound(0) + 1;
-            int columns = matrix.Length / rows;
-
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < columns; j++)
+                if (matrix[i, j] % 2 != 0)
                 {
-                    if (matrix[i, j] % 2 != 0)
-                    {
-                        matrix[i, j] = 0;
-                    }
+                    matrix[i, j] = 0;
                 }
             }
+        }
 
-            string str="";
-            for (int i = 0; i < rows; i++)
+        string str = "";
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++)
             {
-                for (int j = 0; j < columns; j++)
+                if (j != columns - 1)
                 {
-                    if (j != columns-1)
-                    {
-                        str += matrix[i, j]+";";
-                    }
-                    else
-                    {
-                        str += matrix[i, j];
-                    }
-                }
-                if (i != rows-1)
-                {
-                    File.AppendAllText(path, str + Environment.NewLine);
+                    str += matrix[i, j] + ";";
                 }
                 else
                 {
-                    File.AppendAllText(path, str);
+                    str += matrix[i, j];
                 }
-                str = "";
             }
-            return path;
+            if (i != rows - 1)
+            {
+                File.AppendAllText(path, str + Environment.NewLine);
+            }
+            else
+            {
+                File.AppendAllText(path, str);
+            }
+            str = "";
         }
+        return path;
     }
 }
+
