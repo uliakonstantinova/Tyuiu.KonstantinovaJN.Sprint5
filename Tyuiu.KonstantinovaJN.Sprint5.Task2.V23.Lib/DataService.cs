@@ -31,14 +31,14 @@ namespace Tyuiu.KonstantinovaJN.Sprint5.Task2.V23.Lib
                 }
             }
 
-            string str = "";
+            string str="";
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < columns; j++)
                 {
                     if (j != columns-1)
                     {
-                        str += matrix[i, j] + ";";
+                        str += matrix[i, j]+";";
                     }
                     else
                     {
@@ -47,7 +47,7 @@ namespace Tyuiu.KonstantinovaJN.Sprint5.Task2.V23.Lib
                 }
                 if (i != rows-1)
                 {
-                    File.AppendAllText(path, Environment.NewLine);
+                    File.AppendAllText(path, str + Environment.NewLine);
                 }
                 else
                 {
