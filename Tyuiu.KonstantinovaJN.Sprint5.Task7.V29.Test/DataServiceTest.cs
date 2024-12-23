@@ -8,7 +8,7 @@ namespace Tyuiu.KonstantinovaJN.Sprint5.Task7.V29.Test
         [TestMethod]
         public void CheckedExistsFile()
         {
-            string path = Path.Combine(Path.GetTempPath(), "InPutDataFileTask7V29.txt");
+            string path = @"C:\DataSprint5\OutPutDataFileTask7V29.txt";
 
             FileInfo fileinfo = new FileInfo(path);
 

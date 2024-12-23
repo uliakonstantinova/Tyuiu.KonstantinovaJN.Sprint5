@@ -1,5 +1,6 @@
 ﻿using tyuiu.cources.programming.interfaces.Sprint5;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Tyuiu.KonstantinovaJN.Sprint5.Task7.V29.Lib
 {
@@ -7,52 +8,21 @@ namespace Tyuiu.KonstantinovaJN.Sprint5.Task7.V29.Lib
     {
         public string LoadDataAndSave(string path)
         {
-            string pathSaveFile = Path.Combine(Path.GetTempPath(), "InPutDataFileTask7V29.txt");
+            string pathSaveFile = Path.Combine(new string[] { Path.GetTempPath(), "OutPutFileTask7.txt"});
 
             FileInfo fileinfo = new FileInfo(pathSaveFile);
             bool fileExists = fileinfo.Exists;
-
 
             if (fileExists)
             {
                 File.Delete(pathSaveFile);
             }
 
-            string strLine = "";
-            using (StreamReader reader = new StreamReader(path))
-            {
-                string line;
-                while ((line = reader.ReadLine()) != null)
-                {
-                    string number = "";
-                    for (int i = 0; i < line.Length; i++)
-                    {
-                        if (line[i] >= '0' && line[i] <= '9')
-                        {
-                            number += line[i];
-                        }
-                        else
-                        {
-                            if (number.Length > 0)
-                            {
-                                strLine += number + " ";
-                                number = "";
-                            }
-
-                            if (line[i] != ' ' || (strLine.Length > 0 && strLine[strLine.Length - 1] != ' '))
-                            {
-                                strLine += line[i];
-                            }
-                        }
-                    }
-                    if (number.Length > 0)
-                    {
-                        strLine += number + " ";
-                    }
-                }
-            }
-            strLine = strLine.Trim();
-            return strLine;
+            string content = File.ReadAllText(path);
+            string pattern = Regex.Replace(content, @"\b[0-9]\b", string.Empty);
+            string clean = Regex.Replace(pattern, @"s+", "  ").Trim();
+            File.WriteAllText(pathSaveFile, clean);
+            return pathSaveFile;
         }
     }
 }
