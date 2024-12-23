@@ -52,7 +52,7 @@ namespace Tyuiu.KonstantinovaJN.Sprint5.Task7.V29.Lib
                 }
             }
             strLine = strLine.Trim();
-            return pathSaveFile;
+            return strLine;
         }
     }
 }
