@@ -8,20 +8,19 @@ namespace Tyuiu.KonstantinovaJN.Sprint5.Task7.V29.Lib
     {
         public string LoadDataAndSave(string path)
         {
-            string pathSaveFile = Path.Combine(new string[] { Path.GetTempPath(), "OutPutFileTask7.txt"});
+            string pathSaveFile = Path.Combine(Path.GetTempPath(), "OutPutFileTask7.txt");
 
             FileInfo fileinfo = new FileInfo(pathSaveFile);
-            bool fileExists = fileinfo.Exists;
-
-            if (fileExists)
+            if (fileinfo.Exists)
             {
                 File.Delete(pathSaveFile);
             }
 
             string content = File.ReadAllText(path);
             string pattern = Regex.Replace(content, @"\b[0-9]\b", string.Empty);
-            string clean = Regex.Replace(pattern, @"s+", "  ").Trim();
+            string clean = Regex.Replace(pattern, @"\s+", " ").Trim();
             File.WriteAllText(pathSaveFile, clean);
+
             return pathSaveFile;
         }
     }
