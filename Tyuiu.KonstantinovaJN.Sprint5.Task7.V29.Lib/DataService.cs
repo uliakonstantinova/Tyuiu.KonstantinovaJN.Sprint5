@@ -28,10 +28,6 @@ namespace Tyuiu.KonstantinovaJN.Sprint5.Task7.V29.Lib
                     {
                         if (line[i] >= '0' && line[i] <= '9')
                         {
-                            strLine += line[i] + " ";
-                        }
-                        else
-                        {
                             strLine += line[i];
                         }
                     }
