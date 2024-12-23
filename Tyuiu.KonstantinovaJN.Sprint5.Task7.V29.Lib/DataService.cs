@@ -24,13 +24,28 @@ namespace Tyuiu.KonstantinovaJN.Sprint5.Task7.V29.Lib
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
+                    string strNum = "";
                     for (int i = 0; i < line.Length; i++)
                     {
                         if (line[i] >= '0' && line[i] <= '9')
                         {
+                            strNum += line[i];
+                        }
+                        else
+                        {
+                            if (strNum.Length > 0)
+                            {
+                                strLine += strNum + " ";
+                                strNum = "";
+                            }
                             strLine += line[i];
                         }
                     }
+                    if (strNum.Length > 0)
+                    {
+                        strLine += strNum + " ";
+                    }
+
                     File.AppendAllText(pathSaveFile, strLine + Environment.NewLine);
                     strLine = "";
                 }
