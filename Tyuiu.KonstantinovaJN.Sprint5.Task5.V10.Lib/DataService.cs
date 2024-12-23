@@ -19,7 +19,7 @@ namespace Tyuiu.KonstantinovaJN.Sprint5.Task5.V10.Lib
                     }
                 }
             }
-            return Math.Round(res, 3);
+            return res;
         }
     }
 }
