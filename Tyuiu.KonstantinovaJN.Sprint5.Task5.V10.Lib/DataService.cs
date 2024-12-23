@@ -13,9 +13,13 @@ namespace Tyuiu.KonstantinovaJN.Sprint5.Task5.V10.Lib
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    if (Convert.ToDouble(line) % 2 == 0)
+                    string[] numbers = line.Split(' ');
+                    foreach (string number in numbers)
                     {
-                        res += Convert.ToDouble(line);
+                        if (double.TryParse(number, out double num) && num % 2 == 0)
+                        {
+                            res += num;
+                        }
                     }
                 }
             }
