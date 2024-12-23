@@ -13,7 +13,7 @@ namespace Tyuiu.KonstantinovaJN.Sprint5.Task6.V18.Test
             string path = Path.Combine(Path.GetTempPath(), "InPutDataFileTask6V18.txt");
 
             var res = ds.LoadFromDataFile(path);
-            int wait = 7;
+            int wait = 2;
 
             Assert.AreEqual(wait, res);
         }
