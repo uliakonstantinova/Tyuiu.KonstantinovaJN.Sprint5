@@ -8,21 +8,26 @@ namespace Tyuiu.KonstantinovaJN.Sprint5.Task6.V18.Lib
         public int LoadFromDataFile(string path)
         {
             int count = 0;
+
             using (StreamReader reader = new StreamReader(path))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    for (int i = 0; i < line.Length; i++)
+                    string[] words = line.Split(' ');
+                    foreach (var word in words)
                     {
-                        if (line[i] >= '0' && line[i] <= '9')
+                        if (int.TryParse(word, out int number))
                         {
-                            count++;
+                            if (number >= 0 && number <= 9)
+                            {
+                                count++;
+                            }
                         }
                     }
                 }
+                return count;
             }
-            return count;
         }
     }
 }
